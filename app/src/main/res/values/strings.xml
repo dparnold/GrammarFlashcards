@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">GrammarFlashcards</string>
+    <string name="title_activity_learning">Learning</string>
+</resources>
