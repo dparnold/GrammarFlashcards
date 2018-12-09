@@ -19,6 +19,8 @@ public interface FlashcardDAO {
     @Query("SELECT * FROM flashcard WHERE ID IN (:IDs)")
     List<Flashcard> loadAllByIds(int[] IDs);
 
+    @Query("DELETE FROM flashcard")
+    public void nukeTable();
 
     @Insert
     void insertAll(List<Flashcard> flashcards); //Flashcard...

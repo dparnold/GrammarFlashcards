@@ -15,6 +15,7 @@
 
 
         <RelativeLayout
+            android:id="@+id/topPanel"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:orientation="horizontal"
@@ -43,35 +44,41 @@
                 android:text="Ignore" />
         </RelativeLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            >
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/topPanel">
+            <LinearLayout
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
 
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="title"
-                android:textSize="40sp"
-                android:textColor="@color/colorIcons"
-                />
-            <TextView
-                android:id="@+id/question"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:text="question"
-                android:layout_marginTop="20dp"
-                android:layout_gravity="center"
-                android:textSize="40sp"
-                android:textColor="@color/colorIcons"
-                />
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="title"
+                    android:textSize="@dimen/big_text_size"
+                    android:textColor="@color/colorText"
+                    android:textStyle="bold"
+                    />
+                <TextView
+                    android:id="@+id/question"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="question"
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center"
+                    android:textSize="@dimen/text_size"
+                    android:textColor="@color/colorText"
+                    />
+            </LinearLayout>
+        </ScrollView>
+
 
     </RelativeLayout>
 
