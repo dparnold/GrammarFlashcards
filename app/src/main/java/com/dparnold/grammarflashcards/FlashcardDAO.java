@@ -22,6 +22,12 @@ public interface FlashcardDAO {
     @Query("DELETE FROM flashcard")
     public void nukeTable();
 
+    @Query("SELECT * FROM flashcard WHERE ignored = 0 AND learning = 1 ORDER BY score DESC, timesStudied DESC LIMIT (:number)")
+    List<Flashcard> getMostRelevant(int number);
+
+    @Query("SELECT * FROM flashcard WHERE ignored = 0 AND learning = 0 LIMIT (:number)")
+    List<Flashcard> getNewFlashcards(int number);
+
     @Insert
     void insertAll(List<Flashcard> flashcards); //Flashcard...
 

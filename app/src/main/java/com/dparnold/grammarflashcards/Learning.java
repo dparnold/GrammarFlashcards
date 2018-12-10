@@ -11,25 +11,36 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.dparnold.grammarflashcards.Helper.TextFormatter;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Learning extends AppCompatActivity {
-
+// User set values
+    private int cardsToStudy = 4;
+// Other variables
+    private int idCurrentCard;
+    private int result;
+    private final long MILLISDAY = 24*60*60*1000;
+// Objects
     private AppDatabase db;
     private List<Flashcard> flashcards = new ArrayList<Flashcard>();
-    private Flashcard currentCard;
-    private int id = 0;
-
+    private Random random = new Random();
+    private Timestamp timestamp;
+    private Toast toast;
+// Buttons
     private Button turnCardButton;
     private Button button1;
     private Button button2;
     private Button button3;
     private Button button4;
-
+// Views
     private TextView title;
     private TextView question;
     private LinearLayout buttonLayout;
@@ -38,16 +49,37 @@ public class Learning extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learning);
-
-// Get Views
+// Getting a timestamp for the current session
+        timestamp = new Timestamp(System.currentTimeMillis());
+// Get views
         title = findViewById(R.id.title);
         question = findViewById(R.id.question);
-        buttonLayout = findViewById(R.id.buttonLayout);;
+        buttonLayout = findViewById(R.id.buttonLayout);
+
 // Get database and read flashcards
         db = com.dparnold.grammarflashcards.AppDatabase.getAppDatabase(this);
-        flashcards = db.flashcardDAO().getAll();
-        currentCard = flashcards.get(0);
-        setTextViews(currentCard);
+
+        flashcards = db.flashcardDAO().getMostRelevant(cardsToStudy);
+        if (flashcards.size()<cardsToStudy){
+            List<Flashcard> newCards;
+            newCards = db.flashcardDAO().getNewFlashcards(cardsToStudy-flashcards.size());
+            for(int i=0;i<newCards.size();i++){
+                newCards.get(i).setLearning(true);
+                db.flashcardDAO().updateFlashcard(newCards.get(i));
+            }
+            flashcards.addAll(newCards);
+            if(flashcards.size()==0){
+                toast =Toast.makeText(getApplicationContext(),
+                        "There are now cards left to study",
+                        Toast.LENGTH_SHORT);
+                toast.show();
+                this.finish();
+                return; // necessary to stop that method
+            }
+        }
+// Pick a random flashcard
+        idCurrentCard=random.nextInt(flashcards.size());
+        setTextViews(flashcards.get(idCurrentCard));
 // Create Buttons
         buttonParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 1f);
         button1 = new Button(this);
@@ -62,7 +94,7 @@ public class Learning extends AppCompatActivity {
         turnCardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                turnCard(currentCard);
+                turnCard(flashcards.get(idCurrentCard));
             }
         });
         buttonLayout.addView(turnCardButton);
@@ -70,6 +102,7 @@ public class Learning extends AppCompatActivity {
     }
     public void back (View view){
         this.finish();
+        return;
     }
 
     private void setTextViews(Flashcard card){
@@ -87,7 +120,7 @@ public class Learning extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                newCard();
+                newCard(-1);
             }
         });
 
@@ -97,7 +130,7 @@ public class Learning extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                newCard();
+                newCard(0);
             }
         });
 
@@ -107,7 +140,7 @@ public class Learning extends AppCompatActivity {
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                newCard();
+                newCard(1);
             }
         });
 
@@ -117,7 +150,7 @@ public class Learning extends AppCompatActivity {
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                newCard();
+                newCard(2);
             }
         });
 
@@ -126,12 +159,40 @@ public class Learning extends AppCompatActivity {
         buttonLayout.addView(button3);
         buttonLayout.addView(button4);
     }
-    private void newCard(){
-        id+=1;
-        currentCard=flashcards.get(id);
-        this.title.setText(currentCard.getTitle());
-        this.question.setText(currentCard.getQuestion());
+    private void newCard(int result){
+// Set the score and the next study time
+        int newScore =flashcards.get(idCurrentCard).getScore()+result;
+        if(newScore<0){
+            newScore=0;
+        }
+        flashcards.get(idCurrentCard).setScore(newScore);
+        flashcards.get(idCurrentCard).setLearnNextTime(timestamp.getTime()+MILLISDAY*((result+1)*(flashcards.get(idCurrentCard).getScore()+1)));
+        db.flashcardDAO().updateFlashcard(flashcards.get(idCurrentCard));
+        if(result>=0){
+            flashcards.remove(idCurrentCard);
+            if(flashcards.isEmpty()){
+                toast =Toast.makeText(getApplicationContext(),
+                        "Well done! You have studied another "+cardsToStudy+" flashcards.",
+                        Toast.LENGTH_SHORT);
+                toast.show();
+                finish();
+                return; // is necessary to stop that method
+            }
+        }
+// go to the next card and shuffle
+        int idOldCard = idCurrentCard;
+        while(idOldCard==idCurrentCard && flashcards.size()!=1){
+            idCurrentCard=random.nextInt(flashcards.size());
+        }
+        if(flashcards.size()==1){
+            idCurrentCard=0;
+        }
+        this.title.setText(flashcards.get(idCurrentCard).getTitle());
+        this.question.setText(flashcards.get(idCurrentCard).getQuestion());
         buttonLayout.removeAllViews();
         buttonLayout.addView(turnCardButton);
     }
+
+
+
 }

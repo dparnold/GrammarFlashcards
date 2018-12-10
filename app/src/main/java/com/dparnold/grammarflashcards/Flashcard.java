@@ -22,6 +22,12 @@ public class Flashcard {
     @ColumnInfo(name = "answer")
     private String answer;
 
+    @ColumnInfo(name= "ignored")
+    private boolean ignored = false;
+
+    @ColumnInfo(name= "learning")
+    private boolean learning = false;
+
     @ColumnInfo(name = "timesstudied")
     private int timesStudied;
 
@@ -29,7 +35,7 @@ public class Flashcard {
     private boolean tostudy = true;
 
     @ColumnInfo(name = "score")
-    private int score;
+    private int score=0;
 
     @ColumnInfo(name = "learnNextTime")
     private long learnNextTime;
@@ -92,6 +98,22 @@ public class Flashcard {
 
     public int getScore() {
         return score;
+    }
+
+    public boolean isIgnored() {
+        return ignored;
+    }
+
+    public void setIgnored(boolean ignored) {
+        this.ignored = ignored;
+    }
+
+    public boolean isLearning() {
+        return learning;
+    }
+
+    public void setLearning(boolean learning) {
+        this.learning = learning;
     }
 
     public void setScore(int score) {
