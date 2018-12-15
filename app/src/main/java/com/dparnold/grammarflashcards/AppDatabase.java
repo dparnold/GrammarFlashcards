@@ -8,7 +8,7 @@ import android.content.Context;
 import com.dparnold.grammarflashcards.FlashcardDAO;
 
 
-@Database(entities = {Flashcard.class}, version = 9)
+@Database(entities = {Flashcard.class}, version = 10)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase INSTANCE;
@@ -22,6 +22,7 @@ public abstract class AppDatabase extends RoomDatabase {
                             // allow queries on the main thread.
                             // Don't do this on a real app! See PersistenceBasicSample for an example.
                             .allowMainThreadQueries()
+                            .fallbackToDestructiveMigration() // Important when Flashcard is changed!!!
                             .build();
         }
         return INSTANCE;

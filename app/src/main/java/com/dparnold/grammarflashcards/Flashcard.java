@@ -31,6 +31,18 @@ public class Flashcard {
     @ColumnInfo(name = "timesstudied")
     private int timesStudied;
 
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    @ColumnInfo(name = "level")
+
+    private int level;
+
     @ColumnInfo(name = "tostudy")
     private boolean tostudy = true;
 
@@ -47,6 +59,8 @@ public class Flashcard {
         this.question=question;
         this.answer = answer;
     }
+
+    public Flashcard(){}; // empty constructor
 
     public int getID() {
         return ID;
