@@ -9,10 +9,128 @@ Mi abuela es interessant*e*.\n
 Mi profesor/profesor#a# es muy ideal*ista*.
 <card>
     <id>2
-    <titel>Adjectives2
+    <titel>Emphasis
     <level>1
-    <question>Which adjective ending2s agree with bot2h masculine a2nd feminine and therfore only change for number?
-    <answer>Adjectives2 that end in *-e* or -*ista*
-Tengo un abuel2o interesant*e*.
-Mi abuela es in2teressant*e*.
-Mi profesor/pr2ofesor2#a# es muy ideal*ista*.
+    <question>When do you emphasize the *second to last syllable* of a word?
+    <answer>When it ends in a *vowel* or *-n*, *-s*.
+If the emphasize is different there has to be an accent (´).
+
+a/*mi*/go (friend)
+re/*su*/men (summary)
+mu/*cha*/chas (girls)
+<card>
+    <id>3
+    <titel>Emphasis
+    <level>1
+    <question>When do you emphasize the *last syllable* of a word?
+    <answer>When the words ends in a letter *other than* a vovel, -n, -s.
+
+a/pren/*der* (to learn)
+u/ni/ver/si/*dad* (university)
+<card>
+    <id>4
+    <titel>The Diaeresis
+    <level>2
+    <question>When do you need the diaeresis (*ü*) in Spanish?
+    <answer>Ü always comes *after g* and #before i or e# if the *u is pronounced*.
+la ver*g*ü#e#nza (shame)
+la anti*g*ü#e#dad (antiquity)
+ar*g*ü#i#r (to argue)
+el para*g*ü#e#ro (umbrella stand)
+el pira*g*ü#i#smo (canoeing)
+
+Without the diaeresis the u is *silent*:
+la *g*u#i#tarra (guitar)
+<card>
+    <id>5
+    <titel>Subjunctive
+    <level>3
+    <question>Gustar + que + subjuntivo?
+    <answer>Gustar + que *always* needs the #subjunctive# in the subordinate clause.
+Me gusta que #cantes# esta canción.
+Me gustaría que #cantaras# esta canción.
+<card>
+    <id>6
+    <titel>Subjunctive
+    <level>3
+    <question>When do you use the *subjunctive with cuando*?
+    <answer>Only for frases in the *future*.
+
+Subjunctive: Cuando *cantes* esa canción, me *pondré* alegre (something that happens in the future)
+#No# subjunctive: Siempre cuando #cantas# esa canción, me #pongo# alegre (something that always happens)
+<card>
+    <id>7
+    <titel>Pronunciation
+    <level>1
+    <question>When are written accent marks used without change of pronunciation? Give 4 examples.
+    <answer>To differentiate between words that are pronounced the same but have *different meanings*.
+
+si – if
+sí – yes
+
+mi – my
+mí – me
+
+el – the
+él – he
+
+tu – your
+tú – you
+<card>
+    <id>8
+    <titel>Qué or cuál?
+    <level>2
+    <question>What do you use to suggest a choice within a group?
+    <answer>Qué + noun *and* cuál + verb/preposition is possible.
+
+¿*Qué* casa es más cara? (Which house is more expensive?)
+¿*Qué* ciudades son las más grandes del mundo? (Which cities are the biggest in the world?)
+Note: Plucal of qué is also qué.
+
+¿*Cuál* de las tres casas es más cara? (Which of the three houses is more expensive?)
+¿Cuáles son las ciudades más grandes del mundo? (Which are the biggest cities in the world?)
+<card>
+    <id>9
+    <titel>Qué or cuál?
+    <level>2
+    <question>What do you use to ask for definitions?
+    <answer>*¿Qué?* is used when asking for definitions or general information.
+
+¿*Qué* es una libreta? (What is a notebook?)
+¿*Qué* es más caro, la carne o el pescado? (What's more expensive, meat or fish?)
+¿*Qué* dirá Pedro? (What will Pedro say?
+<card>
+    <id>10
+    <titel>Qué or cuál?
+    <level>2
+    <question>What do you use to inquire about preferences?
+    <answer>¿*Qué* #or# *Cuál* + verb (preferir, querer, desear, gustar)...? is used when asking about preferences.
+
+*Qué* is generally used when the items you are asking about are not on your sight and options are not given to you.
+¿*Qué* prefieres, la carne o el pescado? (What do you prefer; meat or fish?)
+
+And *cuál* when you have them in your hands or in front of you, or are specific items.
+¿*Cúal* prefieres, este o ese? (Which one do you prefer; this or that one?)
+<card>
+    <id>11
+    <titel>Qué or cuál?
+    <level>2
+    <question>What do you use to ask for general information when #not# seeking a definition?
+    <answer>¿*Cuál + es*? when #not# seeking a definition.
+
+¿*Cúal* es tu nombre? (What is your name?)
+¿*Cuál* es tu número de teléfono? (What is your phone number?)
+<card>
+    <id>12
+    <titel>Qué or cuál?
+    <level>2
+    <question>What do you use to ask for advice?
+    <answer>¿Qué + verb in conditional...? is used to ask for advice.
+
+Oye Pedro, mañana tengo una entrevista de trabajo y no sé qué ponerme. ¿Tú *qué* llevarías? (Look, Pedro, I've got an interview tomorrow and I don't know what to wear. What would you wear?)
+<card>
+    <id>13
+    <titel>Qué or cuál?
+    <level>2
+    <question>What is the most important rule?
+    <answer>*¿Cuál?* #cannot# be followed by a *noun*.

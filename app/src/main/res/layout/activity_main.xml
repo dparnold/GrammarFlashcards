@@ -37,4 +37,10 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:text="Output textview"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:text="Show all Flashcards"
+        android:onClick="showall"/>
 </LinearLayout>

@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
         textOutput.setText("well done!");
     }
-    public void learn (View view){
-        startActivity(new Intent(MainActivity.this, Learning.class));
+    public void learn (View view){startActivity(new Intent(MainActivity.this, Learning.class));
     }
+    public void showall(View view){startActivity(new Intent(MainActivity.this, AllFlashcards.class));}
 }
