@@ -5,42 +5,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/mainLinearLayout">
+    <ScrollView
+        android:id="@+id/mainScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/packageLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:text="Beginner"
-        android:layout_weight="3"
-        android:onClick="learn"
-        />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:text="Intermediate"
-        android:layout_weight="3"
-        android:onClick="learn"
-        />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:text="Advanced"
-        android:layout_weight="3"
-        android:onClick="learn"
-        />
-    <TextView
-        android:id="@+id/textOutput"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:text="Output textview"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="3"
-        android:text="Show all Flashcards"
-        android:onClick="showall"/>
+        </LinearLayout>
+
+    </ScrollView>
+
 </LinearLayout>

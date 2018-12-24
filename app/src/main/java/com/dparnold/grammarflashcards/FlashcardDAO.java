@@ -28,6 +28,9 @@ public interface FlashcardDAO {
     @Query("SELECT * FROM flashcard WHERE ignored = 0 AND learning = 0 LIMIT (:number)")
     List<Flashcard> getNewFlashcards(int number);
 
+    @Query("SELECT * FROM flashcard WHERE packageName=:packageName")
+    List<Flashcard> getAllFromPackage(String packageName);
+
     @Insert
     void insertAll(List<Flashcard> flashcards); //Flashcard...
 

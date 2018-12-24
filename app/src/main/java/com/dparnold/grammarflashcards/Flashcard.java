@@ -10,8 +10,11 @@ import android.arch.persistence.room.PrimaryKey;
 
 @Entity
 public class Flashcard {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     private int ID;
+
+    @ColumnInfo(name="packageName")
+    private String packageName;
 
     @ColumnInfo(name = "title")
     private String title;
@@ -29,19 +32,10 @@ public class Flashcard {
     private boolean learning = false;
 
     @ColumnInfo(name = "timesstudied")
-    private int timesStudied;
-
-    public int getLevel() {
-        return level;
-    }
-
-    public void setLevel(int level) {
-        this.level = level;
-    }
+    private int timesStudied = 0;
 
     @ColumnInfo(name = "level")
-
-    private int level;
+    private int level = 0;
 
     @ColumnInfo(name = "tostudy")
     private boolean tostudy = true;
@@ -61,6 +55,8 @@ public class Flashcard {
     }
 
     public Flashcard(){}; // empty constructor
+
+
 
     public int getID() {
         return ID;
@@ -88,6 +84,14 @@ public class Flashcard {
 
     public String getAnswer() {
         return answer;
+    }
+
+    public String getPackageName() {
+        return packageName;
+    }
+
+    public void setPackageName(String packageName) {
+        this.packageName = packageName;
     }
 
     public void setAnswer(String answer) {
@@ -132,6 +136,13 @@ public class Flashcard {
 
     public void setScore(int score) {
         this.score = score;
+    }
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
     }
 
     public long getLearnNextTime() {

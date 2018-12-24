@@ -29,7 +29,7 @@ public class AllFlashcards extends AppCompatActivity {
         db = com.dparnold.grammarflashcards.AppDatabase.getAppDatabase(this);
         db.flashcardDAO().nukeTable();
         if(db.flashcardDAO().getAll().isEmpty()){
-            db.flashcardDAO().insertAll(FlashcardPackage.readPackage(this)); // read new
+            db.flashcardDAO().insertAll(FlashcardPackage.readPackage(this,"Beginner")); // read new
         }
         List<Flashcard> allFlashcards= db.flashcardDAO().getAll();
 
