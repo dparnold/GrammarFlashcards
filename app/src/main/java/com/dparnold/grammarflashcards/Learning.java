@@ -192,7 +192,7 @@ public class Learning extends AppCompatActivity {
             idCurrentCard=0;
         }
         this.title.setText(flashcards.get(idCurrentCard).getTitle());
-        this.question.setText(flashcards.get(idCurrentCard).getQuestion());
+        this.question.setText(Html.fromHtml(TextFormatter.highlight(this,flashcards.get(idCurrentCard).getQuestion())));
         buttonLayout.removeAllViews();
         buttonLayout.addView(turnCardButton);
     }

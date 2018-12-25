@@ -1,42 +1,18 @@
 <card>
-<titel>Adject333333333ives
-<question>Which adjective endings agree with both masculine and feminine and therefore only change for number?
-<answer>Adjectives that end in *-e* or -*ista*
-Tengo un abuelo interesant*e*.
-Mi abuela es interessant*e*.\n
-Mi profesor/profesor#a# es muy ideal*ista*.
+<titel>Subjunctive
+<question>Gustar + que + subjuntivo?
+<answer>Gustar + que *always* needs the #subjunctive# in the subordinate clause.
+
+Me gusta que #cantes# esta canción.
+Me gustaría que #cantaras# esta canción.
 
 <card>
-<titel>Empha3333333333sis
-<question>When do you emphasize the *second to last syllable* of a word?
-<answer>When it ends in a *vowel* or *-n*, *-s*.
-If the emphasize is different there has to be an accent (´).
+<titel>Subjunctive
+<question>When do you use the *subjunctive with cuando*?
+<answer>Only for frases in the *future*.
 
-a/*mi*/go (friend)
-re/*su*/men (summary)
-mu/*cha*/chas (girls)
+*Subjunctive:*
+Cuando *cantes* esa canción, me *pondré* alegre (something that happens in the future)
 
-<card>
-<titel>Empha333333333sis
-<question>When do you emphasize the *last syllable* of a word?
-<answer>When the words ends in a letter *other than* a vovel, -n, -s.
-
-a/pren/*der* (to learn)
-u/ni/ver/si/*dad* (university)
-
-<card>
-<titel>Pronun3333333333333ciation
-<question>When are written accent marks used without change of pronunciation? Give 4 examples.
-<answer>To differentiate between words that are pronounced the same but have *different meanings*.
-
-si – if
-sí – yes
-
-mi – my
-mí – me
-
-el – the
-él – he
-
-tu – your
-tú – you
+#No subjunctive:#
+Siempre cuando #cantas# esa canción, me #pongo# alegre (something that always happens)

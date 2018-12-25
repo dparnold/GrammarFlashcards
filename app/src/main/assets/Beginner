@@ -2,9 +2,12 @@
 <titel>Adjectives
 <question>Which adjective endings agree with both masculine and feminine and therefore only change for number?
 <answer>Adjectives that end in *-e* or -*ista*
+
 Tengo un abuelo interesant*e*.
-Mi abuela es interessant*e*.\n
-Mi profesor/profesor#a# es muy ideal*ista*.
+Mi abuela es interessant*e*.
+
+Mi hermano es muy ideal*ista*.
+Su amiga es muy ideal*ista*.
 
 <card>
 <titel>Emphasis
@@ -40,3 +43,108 @@ el – the
 
 tu – your
 tú – you
+
+<card>
+<titel>Definite Article
+<question>When is la/una changed to el/un?
+<answer>When a female noun *begins* with a stressed *a-* or *ha-*.
+
+*el* agua - water
+*el* águila - eagle
+*el* hambre - hunger
+
+Adjectives that follow the noun are still feminine:
+*el* agua clar*a*
+*el* águila peligros*a*
+
+The el is not needed when an andjective is between the article an the noun:
+*la* pura agua
+*la* gran águila
+
+<card>
+<titel>Preposition
+<question>When do you combine a preposition and a definite article?
+<answer>There are two cases with *el*:
+a + el = al
+de + el = del
+
+Voy a ir al teatro (a el teatro).
+
+<card>
+<titel>Indefinite Article
+<question>What is special about *otro* and *medio*?
+<answer>They are never used with the indefinite article.
+
+Quiero *otra* cerveza. (I want another beer.)
+Quiero *medio* kilo de pan. (I want half a kilo of bread.)
+
+<card>
+<titel>Diminutive
+<question>How do you form the diminutive of words that end in any vowel other than-e?
+<answer>Replace the final vowel of the noun by *ito*/*ita*.
+una casa - (a house)
+una cas*ita* - (a little house)
+
+un perro - (a dog)
+un perr*ito* - (a little/darling dog)
+
+una abuela (a grandmother)
+una abuel*ita* (loving way of saying grandmother)
+
+<card>
+<titel>Diminutive
+<question>How do you form the diminutive of words that end in -e, -n, -r, or a stressed vowel?
+<answer>Add *-cito*/*-cita*
+
+una joven - (young girl)
+jovencita - (young lady (endearing))
+
+mamá - (mama)
+mamacita - (mommy)
+
+pintor - (painter)
+pintorcito - (third-rate painter)
+
+pobre - (poor)
+pobrecito - (poor little thing)
+
+<card>
+<titel>Diminutive
+<question>How do you form the diminutive of words with one syllable that end in a consonant?
+<answer> Add *–ecito* or *–ecillo*
+
+
+flor - (flower)
+florecita - (little flower)
+pan - (bread)
+panecillo - (roll)
+
+<card>
+<titel>Hard and Soft Vowels
+<question>Which are the soft vowels and how do you pronounce c- and g- in front of them?
+<answer>Soft vowels are *e* and *i*.
+
+c is pronounced like s:
+la cebolla - (onion)
+el cinturón - (belt)
+
+g is pronounced like a rough j:
+la gente - (the people)
+gigante - (gigantic)
+
+<card>
+<titel>
+<question>>Which are the hard vowels and how do you pronounce c- ,g- and z- in front of them?
+<answer>Hard vowels are *a*, *o* and *u*.
+
+c is pronounced like k:
+la cama - (bed)
+la cuchara - (spoon)
+
+g ist just pronounced like g:
+las gafas - (glasses)
+el abogado - (lawyer)
+
+z is pronounced like s:
+perezoso - (lazy)
+zumo - (juice)
