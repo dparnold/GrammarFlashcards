@@ -28,6 +28,7 @@ public class Learning extends AppCompatActivity {
     private int idCurrentCard;
     private int result;
     private final long MILLISDAY = 24*60*60*1000;
+    String packageName;
 // Objects
     private AppDatabase db;
     private List<Flashcard> flashcards = new ArrayList<Flashcard>();
@@ -57,12 +58,15 @@ public class Learning extends AppCompatActivity {
         buttonLayout = findViewById(R.id.buttonLayout);
 
 // Get database and read flashcards
+    // Get name of package
+        Intent myIntent = getIntent(); // gets the previously created intent
+        String packageName = myIntent.getStringExtra("packageName");
         db = com.dparnold.grammarflashcards.AppDatabase.getAppDatabase(this);
 
-        flashcards = db.flashcardDAO().getMostRelevant(cardsToStudy);
+        flashcards = db.flashcardDAO().getMostRelevantOfPackage(cardsToStudy, packageName);
         if (flashcards.size()<cardsToStudy){
             List<Flashcard> newCards;
-            newCards = db.flashcardDAO().getNewFlashcards(cardsToStudy-flashcards.size());
+            newCards = db.flashcardDAO().getNewFlashcardsOfPackage(cardsToStudy-flashcards.size(), packageName);
             for(int i=0;i<newCards.size();i++){
                 newCards.get(i).setLearning(true);
                 db.flashcardDAO().updateFlashcard(newCards.get(i));

@@ -44,12 +44,11 @@
         android:layout_below="@id/title"
         android:textSize="@dimen/small_text_size"/>
     <Button
-        android:id="@+id/button"
+        android:id="@+id/reviewButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:text="Review"
-        android:onClick="learn"
         android:layout_below="@id/progressText"/>
 
     <TextView
@@ -64,7 +63,7 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/colorAccent"
-        android:layout_below="@id/button"
+        android:layout_below="@id/reviewButton"
         />
 
 </RelativeLayout>

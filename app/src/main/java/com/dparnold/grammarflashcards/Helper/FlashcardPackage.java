@@ -2,6 +2,7 @@ package com.dparnold.grammarflashcards.Helper;
 
 import android.content.Context;
 
+import com.dparnold.grammarflashcards.CustomViews.PackageView;
 import com.dparnold.grammarflashcards.Flashcard;
 
 import java.io.BufferedReader;
@@ -12,18 +13,31 @@ import java.util.Arrays;
 import java.util.List;
 
 public class FlashcardPackage {
-    private ArrayList<Flashcard> flashcards;
+// Attributes
+    private List<Flashcard> flashcards;
     private String name;
-
-    public FlashcardPackage(ArrayList<Flashcard> flashcards, String name){
+    private int numberOfCards;
+    private PackageView packageView;
+    private Context context;
+    public FlashcardPackage(Context context,List<Flashcard> flashcards, String name){
         this.flashcards=flashcards;
         this.name=name;
+        this.context=context;
+        initialize();
     }
     public FlashcardPackage(Context context, String name){
         this.name=name;
+        this.context=context;
         this.flashcards=FlashcardPackage.readPackage(context,name);
+        initialize();
     }
 // Methods
+
+    private void initialize(){
+        this.numberOfCards=flashcards.size();
+
+    }
+
     public static ArrayList<Flashcard> readPackage(Context context, String name){
         StringBuilder text = new StringBuilder();
 
@@ -50,15 +64,19 @@ public class FlashcardPackage {
             Flashcard newCard = new Flashcard();
             String[] splitted2 =splitted.get(i).split("\n    <.*>|\n\t<.*>|\n<.*>|<.*>"); //Split by the tags either with newline+ spaces or newline + tab or only tag
             newCard.setTitle(splitted2[1]);
-            newCard.setLevel(Integer.parseInt(splitted2[2]));
-            newCard.setQuestion(splitted2[3]);
-            newCard.setAnswer(splitted2[4]);
+            newCard.setQuestion(splitted2[2]);
+            newCard.setAnswer(splitted2[3]);
             newCard.setPackageName(name);
             cardPackage.add(newCard);
         }
         return cardPackage;
     }
 
+    public List<Flashcard> getFlashcards() {
+        return flashcards;
+    }
 
-    
+    public void setFlashcards(List<Flashcard> flashcards) {
+        this.flashcards = flashcards;
+    }
 }

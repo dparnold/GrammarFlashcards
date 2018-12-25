@@ -24,12 +24,15 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 // Variables
     List<String> packagesNames = Arrays.asList("Beginner", "Intermediate", "Advanced");
+    List<PackageView> packageViews = new ArrayList<>();
     ArrayList<FlashcardPackage> packages=new ArrayList<>();
 // Views
     private TextView textOutput;
     private LinearLayout mainLinearLayout;
+// Others
     private com.dparnold.grammarflashcards.AppDatabase db;
     private List<Flashcard> flashcards = new ArrayList<Flashcard>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,20 +41,33 @@ public class MainActivity extends AppCompatActivity {
 // Get views
         mainLinearLayout=findViewById(R.id.packageLinearLayout);
 // Get flashcards
-        for(int i=0;i<packagesNames.size();i++){
-            mainLinearLayout.addView(new PackageView(this,packagesNames.get(i),33));
-            packages.add(new FlashcardPackage(this,packagesNames.get(i)));
-        }
-
         db = com.dparnold.grammarflashcards.AppDatabase.getAppDatabase(this);
         db.flashcardDAO().nukeTable();
+        int numberOfCardsInPackage;
+        for(int i=0;i<packagesNames.size();i++){
+        //
+            packageViews.add(new PackageView(this,packagesNames.get(i)));
+            mainLinearLayout.addView(packageViews.get(i));
+            numberOfCardsInPackage=db.flashcardDAO().getNumberOfCards(packagesNames.get(i));
+
+            if(numberOfCardsInPackage==0){
+                packages.add(new FlashcardPackage(this,packagesNames.get(i)));
+                db.flashcardDAO().insertAll(FlashcardPackage.readPackage(this,packagesNames.get(i))); // read the missing package
+            }
+            else{
+                packages.add(new FlashcardPackage(this,db.flashcardDAO().getAllFromPackage(packagesNames.get(i)),packagesNames.get(i)));
+            }
+            numberOfCardsInPackage=db.flashcardDAO().getNumberOfCards(packagesNames.get(i));
+            packageViews.get(i).setNumberOfCards(numberOfCardsInPackage);
+        }
+
+
         if(db.flashcardDAO().getAll().isEmpty()){
-            db.flashcardDAO().insertAll(FlashcardPackage.readPackage(this,"Beginner")); // read new
+
         }
 
 
     }
-    public void learn (View view){startActivity(new Intent(MainActivity.this, Learning.class));
-    }
+
     public void showall(View view){startActivity(new Intent(MainActivity.this, AllFlashcards.class));}
 }

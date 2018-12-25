@@ -25,8 +25,14 @@ public interface FlashcardDAO {
     @Query("SELECT * FROM flashcard WHERE ignored = 0 AND learning = 1 ORDER BY score DESC, timesStudied DESC LIMIT (:number)")
     List<Flashcard> getMostRelevant(int number);
 
+    @Query("SELECT * FROM flashcard WHERE ignored = 0 AND learning = 1 AND packageName=:packageName ORDER BY score DESC, timesStudied DESC LIMIT (:number)")
+    List<Flashcard> getMostRelevantOfPackage(int number, String packageName);
+
     @Query("SELECT * FROM flashcard WHERE ignored = 0 AND learning = 0 LIMIT (:number)")
     List<Flashcard> getNewFlashcards(int number);
+
+    @Query("SELECT * FROM flashcard WHERE ignored = 0 AND learning = 0 AND packageName=:packageName LIMIT (:number)")
+    List<Flashcard> getNewFlashcardsOfPackage(int number,String packageName);
 
     @Query("SELECT * FROM flashcard WHERE packageName=:packageName")
     List<Flashcard> getAllFromPackage(String packageName);
@@ -39,4 +45,7 @@ public interface FlashcardDAO {
 
     @Update
     void updateFlashcard(Flashcard flashcard);
+
+    @Query("SELECT COUNT(*) FROM flashcard WHERE packageName = :packageName")
+    int getNumberOfCards(String packageName);
 }
