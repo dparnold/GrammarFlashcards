@@ -49,9 +49,9 @@ tú – you
 <question>When is la/una changed to el/un?
 <answer>When a female noun *begins* with a stressed *a-* or *ha-*.
 
-*el* agua - water
-*el* águila - eagle
-*el* hambre - hunger
+*el* agua - (water)
+*el* águila - (eagle)
+*el* hambre - (hunger)
 
 Adjectives that follow the noun are still feminine:
 *el* agua clar*a*
@@ -60,6 +60,9 @@ Adjectives that follow the noun are still feminine:
 The el is not needed when an andjective is between the article an the noun:
 *la* pura agua
 *la* gran águila
+
+In plural las is used again:
+*las* hachas - (the axes)
 
 <card>
 <titel>Preposition
@@ -148,3 +151,152 @@ el abogado - (lawyer)
 z is pronounced like s:
 perezoso - (lazy)
 zumo - (juice)
+
+<card>
+<titel>Definite article or not?
+<question>In front of each noun if there is more than one stated?
+<answer>*Yes!*
+
+Tengo *el* libro, *el* cuaderno y *la* pluma. -(I have the book, notebook and pen.)
+
+<card>
+<titel>Definite article or not?
+<question>With a noun when you make a general statement?
+<answer>*Yes!*
+
+Me gusta *el* cafe. - (I like coffee)
+
+<card>
+<titel>Definite article or not?
+<question>With a noun of weight or measure?
+<answer>*Yes!*
+un dólar *la* libra - (on dollar a pound / per pound)
+
+<card>
+<titel>Definite article or not?
+<question>In front of a noun indicating a profession, rank, title followed by the name of a person?
+<answer>*Yes!*
+
+*La* profesora Hernández es inteligente - (Professor Hernández is intelligent.)
+
+*But* in the direct address you omit the definite article.
+
+Buenos días profesor Rivera. - (Good morning professor Rivera.)
+
+<card>
+<titel>Definite article or not?
+<question>With the name of a language? (+ special case)
+<answer>The definite article can be *used or omitted*.
+
+Estudio *(el*) español desde hace tres años. - (I study Spanish since three years.)
+
+It is not used after *hablar*:
+Hablo español. - (I speak Spanish)
+
+<card>
+<titel>Definite article or not?
+<question>With the name of a subject matter?
+<answer>*Yes!*
+
+Estudio *la* historia. - (I study history.)
+
+<card>
+<titel>Definite article or not?
+<question>With the days of the week?
+<answer>*Yes!*
+
+Voy al cine *el* sábado. - (I am going to the movies on Saturday.)
+
+<card>
+<titel>Definite article or not?
+<question>With the seasons of the year?
+<answer>*Yes!*
+
+en *la* primavera - (in spring)
+en *el* otoño - (in autumn)
+
+<card>
+<titel>Definite article or not?
+<question>With a proper noun modified by an adjective?
+<answer>*Yes!*
+
+*el* pequeño José - (little Joseph)
+
+<card>
+<titel>Definite article or not?
+<question>When telling time?
+<answer>*Yes!*
+
+Es *la* una. - (it is one o'clock)
+son *las* seis - (it is six o'clock)
+
+<card>
+<titel>Definite article or not?
+<question>When telling time?
+<answer>*No!*
+
+<card>
+<titel>Definite article or not?
+<question>After the prepositions *en* and *de* with the name of a language or a subject matter?
+<answer>*No!*
+
+Estoy escribiendo en inglés - (I am writing in English)
+La señora Johnson es profesora de inglés. - (Mrs. Johnson is a teacher of English.)
+
+<card>
+<titel>Definite article or not?
+<question>With a proper noun to show possession when using *de*?
+<answer>*No!*
+
+los libros de Marta - (Martha's books)
+
+<card>
+<titel>Definite article or not?
+<question>With an infinitive?
+<answer>*Yes* if the infinitive is used as a noun at the beginning of a sentence:
+
+*El* estudiar es bueno. - ( Studying is good.)
+
+Otherwise, the definitive article is *not used*:
+
+Es bueno viajar. - (Travelling is good.)
+
+<card>
+<titel>Definite article or not?
+<question>With a numeral that denotes the order of succession of a monarch?
+<answer>*No!*
+Carlos V(Quinto) - (Charles the Fifth)
+
+<card>
+<titel>Definite article or not?
+<question>With the names of countries en continents?
+<answer>It *depends*!
+
+*Definite article:*
+*el* Canadá - (Canada)
+*los* Estados Unidos - (USA)
+*la* Argentina - (Argentina)
+*el* Brasil - (Brasil)
+*la* América del Norte - (North America)
+*la América Central - (Central America)
+
+#No# *definite article:*
+España - (Spain)
+Francia - (France)
+México - (Mexico)
+Europa - (Europe)
+
+<card>
+<titel>Indefinite Article
+<question>When is the indefinite article generally used?
+<answer>To introduce new elements to a conversation.
+
+Hay *un* hombre en la puerta - (There is a man at the door.)
+
+<card>
+<titel>Indefinite Article
+<question>Explain a special usage ot the indefinite articles' plural
+<answer>To indicate an *indefinite number*:
+
+Allí bailan *unas* hormigas - (Over there dance *some* ants.)
+*unos* treinta coches - (*about* thirty cars)

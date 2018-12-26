@@ -20,7 +20,10 @@ public interface FlashcardDAO {
     List<Flashcard> loadAllByIds(int[] IDs);
 
     @Query("DELETE FROM flashcard")
-    public void nukeTable();
+    void nukeTable();
+
+    @Query("DELETE FROM flashcard WHERE packageName = :packageName")
+    void removePackage(String packageName);
 
     @Query("SELECT * FROM flashcard WHERE ignored = 0 AND learning = 1 ORDER BY score DESC, timesStudied DESC LIMIT (:number)")
     List<Flashcard> getMostRelevant(int number);
