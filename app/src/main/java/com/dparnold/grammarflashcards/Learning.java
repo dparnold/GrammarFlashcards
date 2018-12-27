@@ -2,10 +2,7 @@ package com.dparnold.grammarflashcards;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.view.View;
 import android.widget.Button;
@@ -19,15 +16,17 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class Learning extends AppCompatActivity {
 // User set values
-    private int cardsToStudy = 4;
+    private int cardsToReview = 5;
+    private int newCards = 3;
 // Other variables
     private int idCurrentCard;
     private int result;
+    private String toastFinishText;
     private final long MILLISDAY = 24*60*60*1000;
+    //private final long MILLISDAY = 60*1000;
     String packageName;
 // Objects
     private AppDatabase db;
@@ -60,25 +59,29 @@ public class Learning extends AppCompatActivity {
 // Get database and read flashcards
     // Get name of package
         Intent myIntent = getIntent(); // gets the previously created intent
-        String packageName = myIntent.getStringExtra("packageName");
+        packageName = myIntent.getStringExtra("packageName");
         db = com.dparnold.grammarflashcards.AppDatabase.getAppDatabase(this);
 
-        flashcards = db.flashcardDAO().getMostRelevantOfPackage(cardsToStudy, packageName);
-        if (flashcards.size()<cardsToStudy){
-            List<Flashcard> newCards;
-            newCards = db.flashcardDAO().getNewFlashcardsOfPackage(cardsToStudy-flashcards.size(), packageName);
-            for(int i=0;i<newCards.size();i++){
-                newCards.get(i).setLearning(true);
-                db.flashcardDAO().updateFlashcard(newCards.get(i));
+        flashcards = db.flashcardDAO().getCardsToReview(packageName, timestamp.getTime(), cardsToReview);
+        toastFinishText = "Great! You have reviewed another "+ Integer.toString(flashcards.size())+" cards.";
+        if (flashcards.isEmpty()){
+            flashcards = db.flashcardDAO().getNewFlashcardsOfPackage(newCards, packageName);
+            toastFinishText = "Great! You have learned "+ Integer.toString(flashcards.size())+" new cards.";
+            for(int i=0;i<flashcards.size();i++){
+                flashcards.get(i).setLearning(true);
+                db.flashcardDAO().updateFlashcard(flashcards.get(i));
             }
-            flashcards.addAll(newCards);
-            if(flashcards.size()==0){
-                toast =Toast.makeText(getApplicationContext(),
-                        "There are now cards left to study",
-                        Toast.LENGTH_SHORT);
-                toast.show();
-                this.finish();
-                return; // necessary to stop that method
+            if(flashcards.isEmpty()){
+                flashcards=db.flashcardDAO().getSomeCards(cardsToReview,packageName);
+                toastFinishText = "Great! You have reviewed another "+ Integer.toString(flashcards.size())+" cards.";
+                if(flashcards.isEmpty()){
+                    toast =Toast.makeText(getApplicationContext(),
+                            "You have ignored all cards.",
+                            Toast.LENGTH_SHORT);
+                    toast.show();
+                    finish();
+                    return;
+                }
             }
         }
 // Pick a random flashcard
@@ -93,7 +96,7 @@ public class Learning extends AppCompatActivity {
 
         turnCardButton = new Button(this);
         turnCardButton.setLayoutParams(buttonParams);
-        turnCardButton.setText("turn around");
+        turnCardButton.setText("Turn Around");
         turnCardButton.setTextSize(20);
         turnCardButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,7 +118,7 @@ public class Learning extends AppCompatActivity {
     }
     private void turnCard(Flashcard card){
         this.question.setText(Html.fromHtml(TextFormatter.highlight(this,card.getAnswer())));
-        this.title.setText("");
+        //this.title.setText("");
         buttonLayout.removeAllViews();
 
         button1 = new Button(this);
@@ -175,15 +178,17 @@ public class Learning extends AppCompatActivity {
         if(result>=0){
             flashcards.remove(idCurrentCard);
             if(flashcards.isEmpty()){
-                toast =Toast.makeText(getApplicationContext(),
-                        "Well done! You have studied another "+cardsToStudy+" flashcards.",
-                        Toast.LENGTH_SHORT);
+                toast =Toast.makeText(getApplicationContext(), toastFinishText, Toast.LENGTH_LONG);
                 toast.show();
                 finish();
                 return; // is necessary to stop that method
             }
         }
 // go to the next card and shuffle
+        goToNextCard();
+    }
+    private void goToNextCard(){
+    // go to the next card and shuffle
         int idOldCard = idCurrentCard;
         while(idOldCard==idCurrentCard && flashcards.size()!=1){
             idCurrentCard=random.nextInt(flashcards.size());
@@ -197,6 +202,22 @@ public class Learning extends AppCompatActivity {
         buttonLayout.addView(turnCardButton);
     }
 
-
+    public void ignoreCard(View view){
+        flashcards.get(idCurrentCard).setIgnored(true);
+        db.flashcardDAO().updateFlashcard(flashcards.get(idCurrentCard));
+        flashcards.remove(idCurrentCard);
+        if(flashcards.isEmpty()){
+            toast.cancel();
+            toast =Toast.makeText(getApplicationContext(), toastFinishText, Toast.LENGTH_LONG);
+            toast.show();
+            this.finish();
+            return; // is necessary to stop that method
+        }
+        else{
+            toast =Toast.makeText(getApplicationContext(),"Flashcard ignored", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+        goToNextCard();
+    }
 
 }

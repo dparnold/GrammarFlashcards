@@ -28,8 +28,11 @@ public interface FlashcardDAO {
     @Query("SELECT * FROM flashcard WHERE ignored = 0 AND learning = 1 ORDER BY score DESC, timesStudied DESC LIMIT (:number)")
     List<Flashcard> getMostRelevant(int number);
 
-    @Query("SELECT * FROM flashcard WHERE ignored = 0 AND learning = 1 AND packageName=:packageName ORDER BY score DESC, timesStudied DESC LIMIT (:number)")
-    List<Flashcard> getMostRelevantOfPackage(int number, String packageName);
+    @Query("SELECT * FROM flashcard WHERE ignored = 0 AND learning = 1 AND packageName=:packageName ORDER BY score ASC, timesStudied DESC LIMIT (:number)")
+    List<Flashcard> getSomeCards(int number, String packageName);
+
+    @Query("SELECT * FROM flashcard WHERE ignored = 0 AND learning = 1 AND packageName=:packageName AND learnNextTime<=:timestamp ORDER BY learnNextTime ASC LIMIT (:number)")
+    List<Flashcard>  getCardsToReview(String packageName, double timestamp, int number);
 
     @Query("SELECT * FROM flashcard WHERE ignored = 0 AND learning = 0 LIMIT (:number)")
     List<Flashcard> getNewFlashcards(int number);
@@ -51,4 +54,13 @@ public interface FlashcardDAO {
 
     @Query("SELECT COUNT(*) FROM flashcard WHERE packageName = :packageName")
     int getNumberOfCards(String packageName);
+
+    @Query("SELECT COUNT(*) FROM flashcard WHERE packageName = :packageName AND learning=1")
+    int getNumberOfCardsStudied(String packageName);
+
+    @Query("SELECT COUNT(*) FROM flashcard WHERE packageName = :packageName AND learning=1 AND ignored=0 AND learnNextTime<=:timestamp ORDER BY learnNextTime ASC")
+    int getNumberOfCardsToReview(String packageName, double timestamp);
+
+    @Query("SELECT COUNT(*) FROM flashcard WHERE packageName = :packageName AND ignored=1")
+    int getNumberOfCardsIgnored(String packageName);
 }

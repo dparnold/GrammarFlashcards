@@ -1,13 +1,24 @@
 <card>
 <titel>Adjectives
 <question>Which adjective endings agree with both masculine and feminine and therefore only change for number?
-<answer>Adjectives that end in *-e* or -*ista*
+<answer>Adjectives that end in *-e*, -*ista* or in a consonant.
 
 Tengo un abuelo interesant*e*.
 Mi abuela es interessant*e*.
 
 Mi hermano es muy ideal*ista*.
 Su amiga es muy ideal*ista*.
+
+El coche es *azul*. - (The car is blue.)
+La gata *feliz* está en la sala. - (The happy cat is in the living room.)
+
+<card>
+<titel>Adjectives
+<question>How do you generally form the plural of adjectives that ends in a consonant?
+<answer>Add *-es* to the adjective.
+
+A la mujer *joven* le gusta este café. - (The young woman likes this cafe)
+A las mujeres *jovenes* les gusta este café. (The young women like this cafe)
 
 <card>
 <titel>Emphasis
@@ -136,7 +147,7 @@ la gente - (the people)
 gigante - (gigantic)
 
 <card>
-<titel>
+<titel>Hard and Soft Vowels
 <question>>Which are the hard vowels and how do you pronounce c- ,g- and z- in front of them?
 <answer>Hard vowels are *a*, *o* and *u*.
 
@@ -164,7 +175,7 @@ Tengo *el* libro, *el* cuaderno y *la* pluma. -(I have the book, notebook and pe
 <question>With a noun when you make a general statement?
 <answer>*Yes!*
 
-Me gusta *el* cafe. - (I like coffee)
+Me gusta *el* cafe. - (I like coffee.)
 
 <card>
 <titel>Definite article or not?
@@ -268,25 +279,6 @@ Es bueno viajar. - (Travelling is good.)
 Carlos V(Quinto) - (Charles the Fifth)
 
 <card>
-<titel>Definite article or not?
-<question>With the names of countries en continents?
-<answer>It *depends*!
-
-*Definite article:*
-*el* Canadá - (Canada)
-*los* Estados Unidos - (USA)
-*la* Argentina - (Argentina)
-*el* Brasil - (Brasil)
-*la* América del Norte - (North America)
-*la América Central - (Central America)
-
-#No# *definite article:*
-España - (Spain)
-Francia - (France)
-México - (Mexico)
-Europa - (Europe)
-
-<card>
 <titel>Indefinite Article
 <question>When is the indefinite article generally used?
 <answer>To introduce new elements to a conversation.
@@ -300,3 +292,58 @@ Hay *un* hombre en la puerta - (There is a man at the door.)
 
 Allí bailan *unas* hormigas - (Over there dance *some* ants.)
 *unos* treinta coches - (*about* thirty cars)
+
+<card>
+<titel>The Neuter Article
+<question>Name three occasions when the neuter article *lo* is used.
+<answer>1. With a masculine singular for of an adjective used as a noun:
+
+*lo* bueno - (the good)
+*lo* malo - (the bad)
+*lo* interessante - (what(ever) is interesting)
+*lo* imposible -(the impossible)
+
+2. With a past participle:
+
+*lo* dicho y *lo* escrito - (what has been said and what has been written)
+
+3. With an adjective or adverb #+ que#, meaning *what* or *how*:
+
+*Lo* #que# es inolvidable; what is unforgettable.
+Veo *lo* fácil #que# es. - (I see how easy it is.)
+
+<card>
+<titel>Adjectives
+<question>Which adjective endings end in a consonant but still have female forms?
+Give the exception to that exception.
+<answer>Adjectives that end in *-or*, *-ón* or *-ín*.
+Just add -a o -as to the masculine singular form and remove the written accent marks if necessary.
+
+Mi hermano es *trabajador*.
+Mi hermana es *trabajador*#a#.
+Mis hermanos son *trabajador*#es#.
+Mis hermanas son *trabajador*#as#.
+
+Adjectives that end in *-erior* do *not* have a feminine form.
+
+Está en la parte *exterior* del edificio.
+
+<card>
+<titel>Adjectives
+<question>How do you create the plural of adjectives that end in *-z*?
+<answer>Change the -z to *-c* and add the usual *-es*:
+
+El gato es feli*z*. - (The cat is happy.)
+Los gatos son feli*ces*. (The cats are happy.)
+
+<card>
+<titel>Adjective Placement
+<question>What is the general rule?
+<answer>In general, *adjectives* follow the #noun# they describe.
+
+Me gustan las #flores# *rojas*. - (I like red flowers.)
+
+<card>
+<titel>Adjective Placement
+<question>What is the general rule?
+<answer>In general, *adjectives* follow the #noun# they describe.
