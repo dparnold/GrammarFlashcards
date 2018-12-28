@@ -18,10 +18,10 @@ la *g*u#i#tarra (guitar)
 
 ¿*Qué* casa es más cara? (Which house is more expensive?)
 ¿*Qué* ciudades son las más grandes del mundo? (Which cities are the biggest in the world?)
-Note: Plucal of qué is also qué.
+Note: Plural of qué is also qué.
 
-¿#Cuál# de las tres casas es más cara? (Which of the three houses is more expensive?)
-¿#Cuáles# son las ciudades más grandes del mundo? (Which are the biggest cities in the world?)
+¿#Cuál# de las tres casas es más cara?  (Which of the three houses is more expensive?)
+¿#Cuáles# son las ciudades más grandes del mundo?  (Which are the biggest cities in the world?)
 <card>
 <titel>Qué or cuál?
 <question>What do you use to ask for definitions?
@@ -93,7 +93,7 @@ coger –> yo cojo
 <question>What are the general gender rules for cities and countries?
 <answer>With *cities* you should use the feminine because the Spanish word for city (la ciudad) is feminine.
 
-Santiago es bonit*a*. = La ciudad de Santigo es bonit*a*. - (the city Santiago is beautiful.)
+Santiago es bonit*a*. = La ciudad de Santigo es bonit*a*. (the city Santiago is beautiful.)
 
 For *countries* you should use the masculine. Only use feminine if the word ends in non-stressed #-a#.
 
@@ -121,18 +121,54 @@ Toda Alemani#a#
 There are some countries you should always use the definite article:
 
 *Definite article:*
-*la* India - (India)
-*los* Estados Unidos - (USA)
-*la* República Dominicana - (Dominican Republic)
+*la* India (India)
+*los* Estados Unidos (USA)
+*la* República Dominicana (Dominican Republic)
 *el* Salvador
-*los* Países Bajos - (the Netherlands)
-*el* Reino Unido - (the United Kingdom)
+*los* Países Bajos (the Netherlands)
+*el* Reino Unido (the United Kingdom)
 
-*la* América del Norte - (North America)
-*la América Central - (Central America)
+*la* América del Norte (North America)
+*la América Central (Central America)
 
 #No# *definite article:*
-España - (Spain)
-Francia - (France)
-México - (Mexico)
-Europa - (Europe)
+España (Spain)
+Francia (France)
+México (Mexico)
+Europa (Europe)
+
+<card>
+<titel>Adjective Placement
+<question>Explain three exceptions to the general rule of adjective placement.
+<answer>The adjective precedes the noun in these cases:
+1. To *emphasize an essential quality* of a noun:
+
+El *valiente* #león# protege su territorio. (The brave lion protects his territory.)
+La *dulce* #miel# es deliciosa en pan tostado. (Sweet honey is delicious on toast.)
+Las *verdes* #hojas# del árbol cantan en el viento. (The green leaves of the tree sing in the breeze.)
+
+2. Possessive adjectives like mi, tu, and su and demonstrative adjectives like ese, este, and aquel come before the nouns they describe:
+
+*Mi* #hermana# es alta. -  My sister is tall.
+*Nuestro* #perro# es muy amable. (Our dog is very friendly.)
+*Este* #árbol# tiene muchas manzanas. (This tree has a lot of apples.)
+*Estas* #sillas# son cómodas. (These chairs are comfortable.)
+
+3. *Limiting adjectives* that define a number or amount of a noun, even if it is not specific, come before the noun.
+
+Los niños quieren *ocho* #helados#. (The children want eight ice creams.)
+Tengo *menos* #dinero# que mi hermana. (I have less money than my sister.)
+Hay *pocas* #naranjas# este verano. (There are few oranges this summer.)
+Tienes *suficiente* #tiempo#. (You have sufficient time.)
+
+More limiting adjectives:
+alguno - some
+bastante - enough
+cuanto - as much
+demasiado - too much
+mucho - a lot
+ninguno - no, none
+poco - a little
+suficiente - sufficient, enough
+varios - various, some, a few
+

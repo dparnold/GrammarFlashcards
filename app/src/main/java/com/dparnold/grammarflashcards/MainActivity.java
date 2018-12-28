@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -49,23 +50,23 @@ public class MainActivity extends AppCompatActivity {
         db = com.dparnold.grammarflashcards.AppDatabase.getAppDatabase(this);
         //db.flashcardDAO().nukeTable();
         db.flashcardDAO().removePackage("New Flashcards");
-        int numberOfCardsInPackage;
         for(int i=0;i<packagesNames.size();i++){
         //
             packageViews.add(new PackageView(this,packagesNames.get(i)));
             mainLinearLayout.addView(packageViews.get(i));
-            numberOfCardsInPackage=db.flashcardDAO().getNumberOfCards(packagesNames.get(i));
 
-            if(numberOfCardsInPackage==0){
+
+            if(db.flashcardDAO().getNumberOfCards(packagesNames.get(i))==0){
                 packages.add(new FlashcardPackage(this,packagesNames.get(i)));
                 db.flashcardDAO().insertAll(FlashcardPackage.readPackage(this,packagesNames.get(i))); // read the missing package
             }
             else{
                 packages.add(new FlashcardPackage(this,db.flashcardDAO().getAllFromPackage(packagesNames.get(i)),packagesNames.get(i)));
             }
-            numberOfCardsInPackage=db.flashcardDAO().getNumberOfCards(packagesNames.get(i));
+
+            updatePackage(packagesNames.get(i));
         // Setting the numbers of cards /cards studied
-            packageViews.get(i).setNumberOfCards(numberOfCardsInPackage);
+            packageViews.get(i).setNumberOfCards(db.flashcardDAO().getNumberOfCards(packagesNames.get(i)));
             packageViews.get(i).setCardsStudied((db.flashcardDAO().getNumberOfCardsStudied(packagesNames.get(i))));
             packageViews.get(i).setCardsToReview(db.flashcardDAO().getNumberOfCardsToReview(packagesNames.get(i),timestamp.getTime()));
             packageViews.get(i).setCardsIgnored((db.flashcardDAO().getNumberOfCardsIgnored(packagesNames.get(i))));
@@ -104,6 +105,28 @@ public class MainActivity extends AppCompatActivity {
             packageViews.get(i).setCardsToReview(db.flashcardDAO().getNumberOfCardsToReview(packagesNames.get(i),timestamp.getTime()));
             packageViews.get(i).setCardsIgnored((db.flashcardDAO().getNumberOfCardsIgnored(packagesNames.get(i))));
             packageViews.get(i).update();
+        }
+    }
+
+    private void updatePackage (String packageName){
+        List<Flashcard> cardsFromPackage = FlashcardPackage.readPackage(this,packageName);
+        List<Flashcard> cardsFromDatabase = this.db.flashcardDAO().getAllFromPackage(packageName);
+
+
+        if(cardsFromPackage.size()> cardsFromDatabase.size()){
+            for(int i=0;i<cardsFromDatabase.size();i++){
+                int j = 0;
+                while(j<cardsFromPackage.size()){
+                    // Very important == tests for reference equality .equals() tests for the values
+                    if(cardsFromDatabase.get(i).getQuestion().equals(cardsFromPackage.get(j).getQuestion())
+                            ||cardsFromDatabase.get(i).getAnswer().equals(cardsFromPackage.get(j).getAnswer())){
+                        cardsFromPackage.remove(j);
+                        break;
+                    }
+                    j=j+1;
+                }
+            }
+            this.db.flashcardDAO().insertAll(cardsFromPackage);
         }
     }
 }

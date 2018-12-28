@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.graphics.PorterDuff;
 import android.widget.TextView;
 
+import com.dparnold.grammarflashcards.AllFlashcards;
 import com.dparnold.grammarflashcards.Learning;
 import com.dparnold.grammarflashcards.MainActivity;
 import com.dparnold.grammarflashcards.R;
@@ -55,6 +56,15 @@ public class PackageView extends RelativeLayout {
                 Intent learningIntent = new Intent(context, Learning.class);
                 learningIntent.putExtra("packageName",getTitle());
                 context.startActivity(learningIntent);
+            }
+        });
+        titleTextView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Handing over the package name when the textView is pressed
+                Intent viewPackageIntent = new Intent(context, AllFlashcards.class);
+                viewPackageIntent.putExtra("packageName",getTitle());
+                context.startActivity(viewPackageIntent);
             }
         });
         update();

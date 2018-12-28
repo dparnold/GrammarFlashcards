@@ -173,7 +173,7 @@ public class Learning extends AppCompatActivity {
             newScore=0;
         }
         flashcards.get(idCurrentCard).setScore(newScore);
-        flashcards.get(idCurrentCard).setLearnNextTime(timestamp.getTime()+MILLISDAY*((result+1)*(flashcards.get(idCurrentCard).getScore()+1)));
+        flashcards.get(idCurrentCard).setLearnNextTime(timestamp.getTime()+MILLISDAY*((result+1)*(flashcards.get(idCurrentCard).getScore()+1))/2);
         db.flashcardDAO().updateFlashcard(flashcards.get(idCurrentCard));
         if(result>=0){
             flashcards.remove(idCurrentCard);

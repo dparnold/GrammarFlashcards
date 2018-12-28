@@ -15,7 +15,8 @@
         android:layout_height="wrap_content"
         android:text="Package title"
         android:layout_alignParentTop="true"
-        android:textSize="@dimen/big_text_size"/>
+        android:textSize="@dimen/big_text_size"
+        android:clickable="true"/>
 
     <View
         android:id="@+id/divider"
