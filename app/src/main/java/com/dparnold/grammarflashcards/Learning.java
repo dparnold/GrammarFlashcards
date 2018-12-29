@@ -1,11 +1,15 @@
 package com.dparnold.grammarflashcards;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,17 +38,17 @@ public class Learning extends AppCompatActivity {
     private Random random = new Random();
     private Timestamp timestamp;
     private Toast toast;
-// Buttons
+// ImageButtons
     private Button turnCardButton;
-    private Button button1;
-    private Button button2;
-    private Button button3;
-    private Button button4;
+    private ImageButton ImageButton1;
+    private ImageButton ImageButton2;
+    private ImageButton ImageButton3;
+    private ImageButton ImageButton4;
 // Views
     private TextView title;
     private TextView question;
-    private LinearLayout buttonLayout;
-    private LinearLayout.LayoutParams buttonParams;
+    private LinearLayout ImageButtonLayout;
+    private LinearLayout.LayoutParams imageButtonParams;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +58,7 @@ public class Learning extends AppCompatActivity {
 // Get views
         title = findViewById(R.id.title);
         question = findViewById(R.id.question);
-        buttonLayout = findViewById(R.id.buttonLayout);
+        ImageButtonLayout = findViewById(R.id.ImageButtonLayout);
 
 // Get database and read flashcards
     // Get name of package
@@ -87,24 +91,33 @@ public class Learning extends AppCompatActivity {
 // Pick a random flashcard
         idCurrentCard=random.nextInt(flashcards.size());
         setTextViews(flashcards.get(idCurrentCard));
-// Create Buttons
-        buttonParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 1f);
-        button1 = new Button(this);
-        button2 = new Button(this);
-        button3 = new Button(this);
-        button4 = new Button(this);
+// Create ImageButtons
+        imageButtonParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        imageButtonParams.weight=1;
+        
+        ImageButton1 = new ImageButton(this);
+        ImageButton2 = new ImageButton(this);
+        ImageButton3 = new ImageButton(this);
+        ImageButton4 = new ImageButton(this);
 
+        LinearLayout.LayoutParams turnCardButtonParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        //imageButtonParams.weight=1;
         turnCardButton = new Button(this);
-        turnCardButton.setLayoutParams(buttonParams);
+        turnCardButton.setLayoutParams(turnCardButtonParams);
         turnCardButton.setText("Turn Around");
         turnCardButton.setTextSize(20);
+        turnCardButton.setBackgroundColor(getResources().getColor(R.color.colorBar));
+        turnCardButton.setCompoundDrawablesWithIntrinsicBounds( R.drawable.ic_turn, 0, 0, 0);
         turnCardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 turnCard(flashcards.get(idCurrentCard));
             }
         });
-        buttonLayout.addView(turnCardButton);
+
+        ImageButtonLayout.addView(turnCardButton);
 
     }
     public void back (View view){
@@ -119,52 +132,77 @@ public class Learning extends AppCompatActivity {
     private void turnCard(Flashcard card){
         this.question.setText(Html.fromHtml(TextFormatter.highlight(this,card.getAnswer())));
         //this.title.setText("");
-        buttonLayout.removeAllViews();
+        ImageButtonLayout.removeAllViews();
 
-        button1 = new Button(this);
-        button1.setLayoutParams(buttonParams);
-        button1.setText("1");
-        button1.setOnClickListener(new View.OnClickListener() {
+        ImageButton1 = new ImageButton(this);
+        ImageButton1.setLayoutParams(imageButtonParams);
+        ImageButton1.setImageResource(R.drawable.ic_1);
+        ImageButton1.setScaleType(ImageView.ScaleType.FIT_CENTER);
+        ImageButton1.setBackgroundColor(getResources().getColor(R.color.colorBar));
+        ImageButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 newCard(-1);
             }
         });
 
-        button2 = new Button(this);
-        button2.setLayoutParams(buttonParams);
-        button2.setText("2");
-        button2.setOnClickListener(new View.OnClickListener() {
+
+        ImageButton2 = new ImageButton(this);
+        ImageButton2.setLayoutParams(imageButtonParams);
+        ImageButton2.setImageResource(R.drawable.ic_2);
+        ImageButton2.setScaleType(ImageView.ScaleType.FIT_CENTER);
+        ImageButton2.setBackgroundColor(getResources().getColor(R.color.colorBar));
+        ImageButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 newCard(0);
             }
         });
 
-        button3 = new Button(this);
-        button3.setLayoutParams(buttonParams);
-        button3.setText("3");
-        button3.setOnClickListener(new View.OnClickListener() {
+        ImageButton3 = new ImageButton(this);
+        ImageButton3.setLayoutParams(imageButtonParams);
+        ImageButton3.setImageResource(R.drawable.ic_3);
+        ImageButton3.setScaleType(ImageView.ScaleType.FIT_CENTER);
+        ImageButton3.setBackgroundColor(getResources().getColor(R.color.colorBar));
+        ImageButton3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 newCard(1);
             }
         });
 
-        button4 = new Button(this);
-        button4.setLayoutParams(buttonParams);
-        button4.setText("4");
-        button4.setOnClickListener(new View.OnClickListener() {
+        ImageButton4 = new ImageButton(this);
+        ImageButton4.setLayoutParams(imageButtonParams);
+        ImageButton4.setImageResource(R.drawable.ic_4);
+        ImageButton4.setScaleType(ImageView.ScaleType.FIT_CENTER);
+        ImageButton4.setBackgroundColor(getResources().getColor(R.color.colorBar));
+        ImageButton4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 newCard(2);
             }
         });
 
-        buttonLayout.addView(button1);
-        buttonLayout.addView(button2);
-        buttonLayout.addView(button3);
-        buttonLayout.addView(button4);
+        View line = new View(this);
+        line.setLayoutParams(new LinearLayout.LayoutParams(1,LinearLayout.LayoutParams.MATCH_PARENT));
+        line.setBackgroundColor(getResources().getColor(R.color.colorTextWeak));
+
+        View line2 = new View(this);
+        line2.setLayoutParams(new LinearLayout.LayoutParams(1,LinearLayout.LayoutParams.MATCH_PARENT));
+        line2.setBackgroundColor(getResources().getColor(R.color.colorTextWeak));
+
+        View line3 = new View(this);
+        line3.setLayoutParams(new LinearLayout.LayoutParams(1,LinearLayout.LayoutParams.MATCH_PARENT));
+        line3.setBackgroundColor(getResources().getColor(R.color.colorTextWeak));
+
+
+        ImageButtonLayout.addView(ImageButton1);
+        ImageButtonLayout.addView(line);
+        ImageButtonLayout.addView(ImageButton2);
+        ImageButtonLayout.addView(line2);
+        ImageButtonLayout.addView(ImageButton3);
+        ImageButtonLayout.addView(line3);
+        ImageButtonLayout.addView(ImageButton4);
     }
     private void newCard(int result){
 // Set the score and the next study time
@@ -198,8 +236,8 @@ public class Learning extends AppCompatActivity {
         }
         this.title.setText(flashcards.get(idCurrentCard).getTitle());
         this.question.setText(Html.fromHtml(TextFormatter.highlight(this,flashcards.get(idCurrentCard).getQuestion())));
-        buttonLayout.removeAllViews();
-        buttonLayout.addView(turnCardButton);
+        ImageButtonLayout.removeAllViews();
+        ImageButtonLayout.addView(turnCardButton);
     }
 
     public void ignoreCard(View view){

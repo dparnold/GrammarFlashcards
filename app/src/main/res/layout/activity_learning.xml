@@ -8,87 +8,95 @@
     android:orientation="vertical">
 
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1">
 
 
         <RelativeLayout
+            android:layout_weight="15"
             android:id="@+id/topPanel"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="match_parent"
             android:orientation="horizontal"
             android:background="@color/colorBar">
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <ImageButton
+                android:id="@+id/backButton"
+                android:src="@drawable/ic_back"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="8dp"
-                android:gravity="left"
+                android:gravity="start"
                 android:onClick="back"
-                android:text="Back" />
+                android:background="@color/colorBar"
+                android:scaleType="fitCenter"/>
 
 
-            <Button
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <ImageButton
+                style="@style/Widget.AppCompat.ImageButton"
+                android:src="@drawable/ic_ignore"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="8dp"
-                android:gravity="right"
+                android:gravity="end"
+                android:background="@color/colorBar"
                 android:onClick="ignoreCard"
-                android:text="Ignore" />
+                android:scaleType="fitCenter"/>
         </RelativeLayout>
 
-        <ScrollView
+    <ScrollView
+        android:layout_weight="3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/topPanel">
+        <LinearLayout
+            android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/topPanel">
-            <LinearLayout
-                android:padding="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                >
+            android:orientation="vertical"
+            >
 
-                <TextView
-                    android:id="@+id/title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="title"
-                    android:textSize="@dimen/big_text_size"
-                    android:textColor="@color/colorText"
-                    android:textStyle="bold"
-                    />
-                <TextView
-                    android:id="@+id/question"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:text="question"
-                    android:layout_marginTop="20dp"
-                    android:layout_gravity="center"
-                    android:textSize="@dimen/text_size"
-                    android:textColor="@color/colorText"
-                    />
-            </LinearLayout>
-        </ScrollView>
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="title"
+                android:textSize="@dimen/big_text_size"
+                android:textColor="@color/colorText"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:id="@+id/question"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="question"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:textSize="@dimen/text_size"
+                android:textColor="@color/colorText"
+                />
+        </LinearLayout>
+    </ScrollView>
 
 
-    </RelativeLayout>
 
-    <LinearLayout
-        android:id="@+id/buttonLayout"
+    <View
         android:layout_width="match_parent"
-        android:layout_weight="6"
-        android:orientation="horizontal"
+        android:layout_height="1px"
+        android:background="@color/colorTextWeak"
+        ></View>
+    <LinearLayout
+        android:layout_weight="14"
+        android:gravity="center_horizontal"
+        android:id="@+id/ImageButtonLayout"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorAccent"
+        android:orientation="horizontal"
+        android:background="@color/colorBar"
         >
 
 

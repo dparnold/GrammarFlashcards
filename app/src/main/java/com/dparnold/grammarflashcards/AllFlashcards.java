@@ -44,9 +44,6 @@ public class AllFlashcards extends AppCompatActivity {
             View line = new View(this);
             line.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,5));
             line.setBackgroundColor(getResources().getColor(R.color.colorAccent));
-            View lineweak = new View(this);
-            line.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,5));
-            line.setBackgroundColor(getResources().getColor(R.color.colorAccent));
 // getting the data for the Views
             flashcardText = "\n"+ allFlashcards.get(i).getTitle()+"\n\n"+allFlashcards.get(i).getQuestion()+"\n\n"+ allFlashcards.get(i).getAnswer();
             newText.setText(Html.fromHtml(TextFormatter.highlight(this,flashcardText)));
